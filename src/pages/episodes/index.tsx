@@ -26,7 +26,13 @@ const Episodes: NextPage<EpisodesProps> = ({ episodes }) => {
 export default Episodes;
 
 export const getStaticProps = async () => {
-  const episodes = getAllPosts(["slug", "title", "image", "content"]);
+  const episodes = getAllPosts([
+    "slug",
+    "title",
+    "image",
+    "content",
+    "unreleased",
+  ]).filter((post) => !post.unreleased);
   return {
     props: { episodes },
   };

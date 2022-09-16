@@ -5,7 +5,20 @@ import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 
 const theme = extendTheme({
   fonts: {
-    heading: "Sniglet, cursive",
+    heading: "'Sniglet', cursive",
+    body: "'Quicksand', sans-serif",
+  },
+  components: {
+    Heading: {
+      baseStyle: {
+        fontWeight: "400",
+      },
+    },
+    Badge: {
+      baseStyle: {
+        fontFamily: "'Quicksand', sans-serif",
+      },
+    },
   },
 });
 
@@ -21,7 +34,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           crossOrigin=""
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Sniglet:wght@800&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Quicksand&family=Sniglet:wght@400;800&family=Spectral:wght@200&display=swap"
           rel="stylesheet"
         />
       </Head>

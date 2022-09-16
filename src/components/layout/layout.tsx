@@ -16,7 +16,7 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
         alignItems="center"
         marginBottom="4"
       >
-        <Heading size="lg">
+        <Heading size="lg" fontWeight={800} fontFamily="'Sniglet', cursive">
           <NextLink href="/">
             <a>
               <Box as="span" color="red.400">

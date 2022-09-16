@@ -1,16 +1,24 @@
 import { AspectRatio, Box, Heading } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import Head from "next/head";
+import { FeaturedEpisodes } from "../components/featured-episodes";
 import { Layout } from "../components/layout/layout";
+import { getAllPosts } from "../lib/api";
+import { EpisodeType } from "../types";
 
-const Home: NextPage = () => {
+interface HomeProps {
+  episodes: EpisodeType[];
+}
+
+const Home: NextPage<HomeProps> = ({ episodes }) => {
   return (
     <>
       <Head>
         <title>Rubbish Rabble</title>
       </Head>
       <Layout>
-        <AspectRatio ratio={16 / 9}>
+        <FeaturedEpisodes episodes={episodes} />
+        {/* <AspectRatio ratio={16 / 9}>
           <iframe
             width="560"
             height="315"
@@ -20,10 +28,17 @@ const Home: NextPage = () => {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           ></iframe>
-        </AspectRatio>
+        </AspectRatio> */}
       </Layout>
     </>
   );
 };
 
 export default Home;
+
+export const getStaticProps = async () => {
+  const episodes = getAllPosts(["slug", "title", "image", "unreleased"]);
+  return {
+    props: { episodes },
+  };
+};
