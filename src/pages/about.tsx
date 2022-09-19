@@ -1,26 +1,49 @@
-import { Text } from "@chakra-ui/react";
+import { Box, Heading, Text } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import Head from "next/head";
+import Image from "next/image";
 import { Layout } from "../components/layout/layout";
 
 const About: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Rubbish Rabble</title>
+        <title>About Rubbish Rabble</title>
       </Head>
       <Layout>
-        <Text>
-          As climate change continues to shape our lives, we felt compelled to
-          create something that could inspire a new generation of
-          environmentalists. Rubbish Rabble is a surrealist, educational, comedy
-          series that combines our love of the planet with craft, up-cycled art.
-          We believe in preserving a world that not only survives but also
-          thrives. The lifestyle of every individual regardless of age or
-          background will change as a result of climate change. As such, we seek
-          to produce an age independent program that is appropriate and
-          relatable for all humans.
-        </Text>
+        <Heading marginBottom="4">Rubbish What Now!?</Heading>
+        <Box display="flex" flexDirection="column" gap="4">
+          <Text>
+            What would humans learn from their trash if it could speak? We
+            imagined a colorful cast of waste-based characters full of
+            sustainability wizdom. They believe in building a world that not
+            only survives but thrives. This tumultuous mob of common detritus
+            share their stories in hopes of inspiring a new generation of
+            environmentalists.
+          </Text>
+          <Text>
+            As climate change ravages on, we felt compelled to send a message:
+            every individual's habits and community engagement must adapt to a
+            changing world. Combining our love of the planet with craft,
+            up-cycled art, we seek to produce an age independent program that is
+            approachable and educational for all humans. We hope that you enjoy
+            it.
+          </Text>
+          <Text>Sincerely, Emma &amp; Jay</Text>
+          <Box
+            borderRadius="3xl"
+            overflow="hidden"
+            position="relative"
+            paddingBottom="65%"
+          >
+            <Image
+              src={require("../img/humble-beginning.jpg")}
+              placeholder="blur"
+              layout="fill"
+              objectFit="cover"
+            />
+          </Box>
+        </Box>
       </Layout>
     </>
   );

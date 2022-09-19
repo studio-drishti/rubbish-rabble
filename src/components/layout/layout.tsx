@@ -17,7 +17,7 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
           display="flex"
           justifyContent="space-between"
           alignItems="center"
-          marginY="4"
+          paddingTop="4"
         >
           <Heading size="lg" fontWeight={800} fontFamily="'Sniglet', cursive">
             <NextLink href="/">

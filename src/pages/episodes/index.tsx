@@ -12,7 +12,7 @@ const Episodes: NextPage<EpisodesProps> = ({ episodes }) => {
   return (
     <>
       <Head>
-        <title>Rubbish Rabble</title>
+        <title>Rubbish Rabble Episodes</title>
       </Head>
       <Layout>
         {episodes.map((episode) => (
