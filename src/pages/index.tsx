@@ -2,6 +2,7 @@ import { AspectRatio, Box, Heading } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { FeaturedEpisodes } from "../components/featured-episodes";
+import { FollowUs } from "../components/follow-us/follow-us";
 import { Layout } from "../components/layout/layout";
 import { getAllPosts } from "../lib/api";
 import { EpisodeType } from "../types";
@@ -18,6 +19,7 @@ const Home: NextPage<HomeProps> = ({ episodes }) => {
       </Head>
       <Layout>
         <FeaturedEpisodes episodes={episodes} />
+        <FollowUs />
         {/* <AspectRatio ratio={16 / 9}>
           <iframe
             width="560"
