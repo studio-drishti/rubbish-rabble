@@ -59,7 +59,7 @@ export const FeaturedEpisodes = ({
       </SimpleGrid>
       <Box textAlign="center" marginTop={[8, 8, 16]}>
         <Link href="/episodes" passHref>
-          <Button as="a">See All Episodes</Button>
+          <Button as="a">see all episodes</Button>
         </Link>
       </Box>
     </Box>

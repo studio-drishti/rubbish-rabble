@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { EpisodesList } from "../../components/episodes-list";
 import { Layout } from "../../components/layout/layout";
 import { getAllPosts } from "../../lib/api";
 import { EpisodeType } from "../../types";
@@ -15,9 +16,7 @@ const Episodes: NextPage<EpisodesProps> = ({ episodes }) => {
         <title>Rubbish Rabble Episodes</title>
       </Head>
       <Layout>
-        {episodes.map((episode) => (
-          <div>{episode.title}</div>
-        ))}
+        <EpisodesList episodes={episodes} />
       </Layout>
     </>
   );
@@ -29,8 +28,8 @@ export const getStaticProps = async () => {
   const episodes = getAllPosts([
     "slug",
     "title",
+    "description",
     "image",
-    "content",
     "unreleased",
   ]).filter((post) => !post.unreleased);
   return {
