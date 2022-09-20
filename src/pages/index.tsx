@@ -20,17 +20,6 @@ const Home: NextPage<HomeProps> = ({ episodes }) => {
       <Layout>
         <FeaturedEpisodes episodes={episodes} />
         <FollowUs />
-        {/* <AspectRatio ratio={16 / 9}>
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube-nocookie.com/embed/0iCuT7HkbJA"
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        </AspectRatio> */}
       </Layout>
     </>
   );

@@ -1,3 +1,4 @@
+import { AspectRatio, Box, Heading, Text } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { Layout } from "../../components/layout/layout";
@@ -15,7 +16,28 @@ const Episode: NextPage<EpisodeProps> = ({ episode }) => {
       <Head>
         <title>Rubbish Rabble</title>
       </Head>
-      <Layout>{episode.title}</Layout>
+      <Layout>
+        <AspectRatio
+          borderRadius="3xl"
+          overflow="hidden"
+          marginBottom="4"
+          ratio={16 / 9}
+        >
+          <iframe
+            width="560"
+            height="315"
+            src={episode.url}
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </AspectRatio>
+        <Heading marginBottom={2}>{episode.title}</Heading>
+        {/* TODO: Replace description with post content. */}
+        <Text>{episode.description}</Text>
+        {/* <Box dangerouslySetInnerHTML={{ __html: episode.content || "" }} /> */}
+      </Layout>
     </>
   );
 };
@@ -29,7 +51,13 @@ type Params = {
 };
 
 export async function getStaticProps({ params }: Params) {
-  const episode = getPostBySlug(params.slug, ["title", "slug", "content"]);
+  const episode = getPostBySlug(params.slug, [
+    "title",
+    "slug",
+    "url",
+    "content",
+    "description",
+  ]);
   const content = await markdownToHtml(episode.content || "");
 
   return {

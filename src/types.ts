@@ -5,6 +5,6 @@ export type EpisodeType = {
   image?: string;
   content?: string;
   description?: string;
-  url?: string[];
+  url?: string;
   unreleased?: boolean;
 };
